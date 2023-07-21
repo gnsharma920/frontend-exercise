@@ -1,0 +1,232 @@
+$colors: (
+  main-black-color: #35424a,
+  main-orangered-color: orangered,
+);
+
+@mixin display-flex() {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+}
+
+@mixin min-display-width($width) {
+  @media (min-width: $width) {
+    @content;
+  }
+}
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1rem;
+  background-color: white;
+  line-height: 1.6em;
+  display: grid;
+  grid-template-rows: 5rem auto 4rem;
+  grid-template-areas:
+    "header"
+    "main"
+    "footer";
+}
+.container {
+  width: 80vw;
+  margin: auto;
+  overflow: hidden;
+}
+
+.backdrop {
+  display: none;
+  top: 0;
+  position: fixed;
+  z-index: 100;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.modal {
+  opacity: 0;
+  transform: translateY(-3rem);
+  transition: opacity 200ms ease-out, transform 200ms ease-out;
+  position: fixed;
+  top: 20%;
+  left: 30%;
+  z-index: 200;
+  width: 55%;
+  background-color: white;
+  padding: 1rem;
+  border: 1px solid white;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+
+  .modal-title {
+    text-align: center;
+    margin: 1rem;
+  }
+
+  .modal-actions {
+    text-align: center;
+
+    .modal-action__positive {
+      background-color: green;
+      padding: 0.6rem;
+    }
+
+    .modal-action__positive a {
+      color: white;
+      text-decoration: none;
+    }
+
+    .modal-action__negative {
+      background-color: red;
+      padding: 0.6rem;
+    }
+  }
+}
+
+header {
+  top: 0;
+  position: fixed;
+  width: 100vw;
+  background-color: map-get($map: $colors, $key: main-black-color);
+  color: white;
+  min-height: 10%;
+  padding: 1.2rem;
+  border-bottom: map-get($map: $colors, $key: main-orangered-color) 3px solid;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  .main-header__div {
+    .toggle-button {
+      //   display: block;
+      width: 1.5rem;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      padding-top: 0;
+      padding-bottom: 0;
+      float: left;
+    }
+
+    .toggle-button__bar {
+      width: 100%;
+      height: 0.2rem;
+      background: white;
+      display: block;
+      margin: 0.6rem 0;
+    }
+    h1 {
+      margin-top: 1rem;
+      margin-left: 2.5rem;
+    }
+  }
+
+  .main-nav {
+    display: none;
+    float: right;
+
+    .main-nav__items {
+      @include display-flex();
+      margin: 0;
+      padding: 0;
+      align-items: center;
+
+      .main-nav__item {
+        padding-right: 1rem;
+        list-style: none;
+      }
+
+      .main-nav__item a,
+      .side-nav__item a {
+        text-decoration: none;
+        font-size: 1rem;
+        font-weight: bold;
+        color: white;
+
+        &:hover,
+        &:hover {
+          color: map-get($map: $colors, $key: main-orangered-color);
+        }
+      }
+    }
+  }
+}
+span {
+  font-size: 2.5rem;
+  color: map-get($map: $colors, $key: main-orangered-color);
+}
+
+.side-nav {
+  display: none;
+  position: fixed;
+  z-index: 101;
+  top: 0;
+  left: 0;
+  background: map-get($map: $colors, $key: main-black-color);
+  width: 50vw;
+  height: 100vh;
+
+  .closeButton {
+    border: none;
+    background-color: map-get($map: $colors, $key: main-black-color);
+    font-size: 2.5rem;
+    color: white;
+  }
+
+  .side-nav__items {
+    width: 90%;
+    height: 100%;
+    list-style: none;
+    margin: 0, auto;
+    padding: 0;
+    @include display-flex();
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .side-nav__item {
+      margin: 1rem 0;
+    }
+
+    .side-nav__item a {
+      color: white;
+      text-decoration: none;
+      font-size: 1.5rem;
+    }
+  }
+}
+
+main {
+  grid-area: main;
+}
+
+footer {
+  grid-area: footer;
+  padding: 1.2rem;
+  color: #fff;
+  font-size: 1rem;
+  text-align: center;
+  background-color: map-get($map: $colors, $key: main-orangered-color);
+}
+
+.open {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@include min-display-width(40rem) {
+  header {
+    .main-nav {
+      display: block;
+    }
+  }
+  .toggle-button {
+    display: none;
+  }
+}

@@ -1,0 +1,77 @@
+$colors: (
+  main-black-color: #35424a,
+  main-orangered-color: orangered,
+);
+@mixin display-flex() {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+}
+
+@mixin min-display-width($width) {
+  @media (min-width: $width) {
+    @content;
+  }
+}
+section article {
+  padding-top: 2rem;
+  width: 100%;
+  height: 23rem;
+  text-align: center;
+  background-color: rgb(184, 214, 184);
+}
+.selectButton {
+  text-align: center;
+}
+
+section article li {
+  padding: 0.6rem;
+  list-style: none;
+}
+
+.chooseButton button {
+  border: none;
+  border-radius: 10px;
+  background-color: map-get($map: $colors, $key: main-orangered-color);
+  color: white;
+  font-weight: bold;
+  padding: 0.6rem;
+}
+
+.chooseButton button:hover {
+  background-color: black;
+  color: map-get($map: $colors, $key: main-orangered-color);
+}
+
+.recommended-class {
+  height: 26rem;
+  background-color: rgb(5, 70, 5);
+  color: white;
+  display: grid;
+  align-items: center;
+  justify-content: center;
+}
+
+.recommended {
+  font-size: 0.8rem;
+  background-color: tomato;
+  color: white;
+  padding: 0.6rem;
+  //   transform: rotateZ(45deg) translate(10rem, -10rem);
+}
+
+@include min-display-width(40rem) {
+  .section-div {
+    @include display-flex();
+    justify-content: center;
+    align-items: center;
+  }
+  section article {
+    width: 30%;
+    margin-bottom: 1rem;
+  }
+  .recommended-class {
+    margin-top: 1rem;
+  }
+}

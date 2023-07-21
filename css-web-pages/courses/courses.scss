@@ -1,0 +1,72 @@
+$colors: (
+  main-black-color: #35424a,
+  main-orangered-color: orangered,
+);
+@mixin display-flex() {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+}
+
+@mixin min-display-width($width) {
+  @media (min-width: $width) {
+    @content;
+  }
+}
+#boxes {
+  background-color: lighten(map-get($colors, main-black-color), 60%);
+
+  .box {
+    background-color: white;
+    width: 100%;
+    text-align: center;
+    padding: 0.6rem;
+    border-radius: 5px;
+    margin: 0.6rem;
+    box-shadow: 2px 2px 10px black;
+
+    img {
+      height: 6.2rem;
+      width: 5rem;
+    }
+
+    .courseButton {
+      margin-top: 1rem;
+      padding: 0.6rem;
+      background-color: map-get($map: $colors, $key: main-orangered-color);
+      border: none;
+      border-radius: 10px;
+
+      a {
+        font-weight: bold;
+        font-size: 1.2rem;
+        color: white;
+        text-decoration: none;
+      }
+    }
+
+    .courseButton:hover {
+      font-weight: bold;
+      font-size: 1.2rem;
+      background-color: black;
+    }
+  }
+
+  .box:hover {
+    box-shadow: 10px 5px 5px map-get($map: $colors, $key: main-orangered-color);
+  }
+}
+
+@include min-display-width(40rem) {
+  #boxes {
+    @include display-flex();
+    flex-wrap: wrap;
+    justify-content: center;
+    .box {
+      width: 25%;
+      min-width: 10rem;
+      max-width: 25rem;
+    }
+  }
+}

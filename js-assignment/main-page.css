@@ -1,0 +1,105 @@
+* {
+  margin: 0px;
+  padding: 0px;
+}
+.body {
+  background-color: rgb(247, 244, 240);
+  font-family: Arial;
+  font-size: small;
+}
+
+.mainDiv {
+  width: 75%;
+}
+
+.model-container {
+  float: left;
+}
+
+.cards {
+  display: inline-block;
+  background-color: rgb(221, 161, 71);
+  width: 20%;
+  border-radius: 5px;
+  margin: 10px;
+  margin-top: 80px;
+  box-shadow: 2px 2px 10px black;
+}
+.cards:hover {
+  box-shadow: 10px 5px 5px black;
+  /* box-shadow: 10px 5px 5px red; */
+}
+
+.image img {
+  width: 100%;
+  border-radius: 5px;
+}
+
+.title {
+  background-color: rgb(221, 161, 71);
+  text-align: center;
+  padding: 5px;
+}
+
+button {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  background-color: white;
+  border: 1px solid black;
+  padding: 5px;
+  border-radius: 5px;
+}
+button:hover {
+  background-color: black;
+  color: white;
+  transition: 0.5s;
+}
+.search {
+  position: fixed;
+  width: 100%;
+  background-color: #3f729b;
+}
+
+.input {
+  border: 1px solid black;
+  border-radius: 5px;
+  height: 25px;
+  width: 30%;
+  margin-top: 1%;
+  margin-bottom: 1%;
+  margin-left: 40%;
+}
+
+.fixed {
+  position: fixed;
+  top: 80px;
+  right: 20px;
+  width: 10%;
+  height: 60%;
+}
+.model {
+  background-color: rgb(221, 161, 71);
+  width: 20%;
+  border-radius: 5px;
+  margin-top: 10px;
+  margin-left: 10px;
+  box-shadow: 5px 5px 5px black;
+}
+
+.displayNone {
+  display: none;
+}
+
+.des {
+  text-align: center;
+  background-color: rgb(221, 161, 71);
+  padding: 5px;
+}
+.closeButton {
+  background-color: rgb(221, 161, 71);
+  font-weight: bold;
+  font-size: 20px;
+  color: black;
+  margin-left: 85%;
+  border: 0px;
+}

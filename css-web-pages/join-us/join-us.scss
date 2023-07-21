@@ -1,0 +1,93 @@
+$colors: (
+  main-black-color: #35424a,
+  main-orangered-color: orangered,
+);
+
+@mixin min-display-width($width) {
+  @media (min-width: $width) {
+    @content;
+  }
+}
+
+main {
+  padding-top: 2rem;
+}
+
+.signup-title {
+  font-size: 1.8rem;
+  color: #ff5454;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+.signup-form {
+  display: grid;
+  grid-auto-rows: 2rem;
+  grid-row-gap: 0.5rem;
+
+  label,
+  input,
+  select {
+    display: block;
+    width: 100%;
+    padding: 0.4rem;
+  }
+
+  label {
+    font-weight: bold;
+    font-size: 1rem;
+  }
+
+  input:not([type="chechbox"]),
+  select {
+    border: 1px solid #ccc;
+    padding: 0.2rem, 0.5rem;
+    font: inherit;
+  }
+
+  input:not([type="chechbox"]):focus,
+  select:focus {
+    outline: none;
+    background-color: #d8f3d8;
+    border-color: #35424a;
+  }
+
+  [type="checkbox"],
+  [type="checkbox"] + label {
+    display: inline-block;
+    width: auto;
+    vertical-align: middle;
+  }
+
+  button[type="submit"] {
+    display: block;
+    background-color: map-get($map: $colors, $key: main-black-color);
+    color: white;
+    padding: 0.6rem;
+    border: none;
+    border-radius: 10px;
+  }
+
+  button[type="submit"]:hover {
+    background-color: black;
+    color: map-get($map: $colors, $key: main-orangered-color);
+  }
+}
+
+.signup-form :invalid {
+  background: rgb(224, 112, 112);
+  border-color: red;
+}
+
+@include min-display-width(40rem) {
+  .signup-form {
+    margin: auto;
+    margin-bottom: 7.5rem;
+    width: 30rem;
+    grid-template-columns: 10rem auto;
+    grid-row-gap: 1rem;
+
+    .signup-form__checkbox {
+      grid-column: span 2;
+    }
+  }
+}

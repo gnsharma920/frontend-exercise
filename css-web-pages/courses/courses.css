@@ -1,0 +1,45 @@
+#boxes {
+  background-color: #d2dadf; }
+  #boxes .box {
+    background-color: white;
+    width: 100%;
+    text-align: center;
+    padding: 0.6rem;
+    border-radius: 5px;
+    margin: 0.6rem;
+    box-shadow: 2px 2px 10px black; }
+    #boxes .box img {
+      height: 6.2rem;
+      width: 5rem; }
+    #boxes .box .courseButton {
+      margin-top: 1rem;
+      padding: 0.6rem;
+      background-color: orangered;
+      border: none;
+      border-radius: 10px; }
+      #boxes .box .courseButton a {
+        font-weight: bold;
+        font-size: 1.2rem;
+        color: white;
+        text-decoration: none; }
+    #boxes .box .courseButton:hover {
+      font-weight: bold;
+      font-size: 1.2rem;
+      background-color: black; }
+  #boxes .box:hover {
+    box-shadow: 10px 5px 5px orangered; }
+
+@media (min-width: 40rem) {
+  #boxes {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; }
+    #boxes .box {
+      width: 25%;
+      min-width: 10rem;
+      max-width: 25rem; } }
+
+/*# sourceMappingURL=courses.css.map */

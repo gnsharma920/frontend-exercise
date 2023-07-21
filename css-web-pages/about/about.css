@@ -1,0 +1,60 @@
+.showcase {
+  height: 40vh;
+  background-image: url(../images/767505_black-dice-3d-ultra-hd-wallpapers-hd-wallpapers-4k-wallpapers_3840x2160_h.webp);
+  background-position: center;
+  background-size: cover;
+  text-align: center; }
+  .showcase h1 {
+    line-height: 2rem;
+    text-align: center;
+    padding: 1rem;
+    padding-top: 3rem;
+    color: #adadad;
+    font-size: 1.6rem; }
+
+@media (min-width: 40rem) {
+  .showcase {
+    height: 50vh; }
+    .showcase h1 {
+      padding-top: 5rem;
+      line-height: 3rem;
+      font-size: 2.6rem; } }
+.showSection {
+  background-color: #9c9797;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem; }
+
+#main-section {
+  width: 100%;
+  font-size: 1rem; }
+  #main-section p {
+    line-height: 1.5rem; }
+
+#side-section {
+  width: 100%;
+  background-color: #333;
+  color: #fff;
+  padding: 0.6rem; }
+
+@media (min-width: 40rem) {
+  .showcase {
+    height: 50vh; }
+    .showcase h1 {
+      padding-top: 5rem;
+      line-height: 3rem;
+      font-size: 2.6rem; }
+
+  .showSection {
+    flex-direction: row; }
+
+  #main-section {
+    width: 65%; }
+
+  #side-section {
+    width: 30%; } }
+
+/*# sourceMappingURL=about.css.map */
